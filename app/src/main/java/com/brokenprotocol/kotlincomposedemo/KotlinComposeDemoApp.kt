@@ -33,11 +33,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.brokenprotocol.kotlincomposedemo.ui.KotlinComposeDemoAppViewModel
+import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailListScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.ExploreScreen
 import kotlinx.coroutines.launch
 
 enum class DemoScreen(@StringRes val title: Int) {
-    Explore(title = R.string.app_name)
+    Explore(title = R.string.explore_screen),
+    DetailList(title = R.string.detail_List_screen)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,7 +96,8 @@ fun KotlinComposeDemoApp (
             drawerState = drawerState,
             drawerContent = {
                 val coroutineScope = rememberCoroutineScope()
-                ModalDrawerSheet(Modifier
+                ModalDrawerSheet(
+                    Modifier
                         .fillMaxWidth(0.8f)
                         .fillMaxHeight())
                 {
@@ -128,7 +131,18 @@ fun KotlinComposeDemoApp (
                     composable(
                         route = DemoScreen.Explore.name,
                     ) {
-                        ExploreScreen()
+                        ExploreScreen(
+                            modifier = Modifier,
+                            onCategoryelected = {
+                                navController.navigate(DemoScreen.DetailList.name)
+                            }
+                        )
+                    }
+
+                    composable(
+                        route = DemoScreen.DetailList.name,
+                    ) {
+                        DetailListScreen()
                     }
 
                 }

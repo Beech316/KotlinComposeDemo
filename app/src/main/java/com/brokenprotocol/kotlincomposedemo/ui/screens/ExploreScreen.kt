@@ -39,7 +39,8 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
 fun ExploreScreen(
-    modifier : Modifier = Modifier
+    modifier : Modifier = Modifier,
+    onCategoryelected: (Category) -> Unit = {}
 ) {
     val dimens = LocalDimension.current
     val list = DataManager.getCategoryList()
@@ -71,7 +72,7 @@ fun ExploreScreen(
                         .selectable(
                             selected = false,
                             onClick = {
-
+                                onCategoryelected(list[it])
                             }
                         )
                 )
