@@ -5,4 +5,9 @@
     <!-- Buttons -->
     <string name="back_button">Back</string>
     <string name="menu_button">Menu</string>
+
+    <!-- headers -->
+    <string name="categories_header_title">Categories</string>
+    <string name="details_header_title">Details</string>
+
 </resources>
