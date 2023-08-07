@@ -25,8 +25,7 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 fun CategoryListItem(
     category: Category,
     modifier : Modifier = Modifier
-)
-{
+) {
     val dimens = LocalDimension.current
 
     Card(

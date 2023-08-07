@@ -78,6 +78,7 @@ fun ExploreScreen(
             ) {
                 DetailListItem(
                     category = list[it],
+                    defaultImage = R.drawable.category_image,
                     modifier = Modifier
                         .padding(
                             all = dimens.small

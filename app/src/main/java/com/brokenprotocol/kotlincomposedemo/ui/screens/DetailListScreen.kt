@@ -9,6 +9,7 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.DataManager
 import com.brokenprotocol.kotlincomposedemo.ui.cells.DetailListItem
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
@@ -33,6 +34,7 @@ fun DetailListScreen(
         ) {
             DetailListItem(
                 category = list[it],
+                defaultImage = R.drawable.detail_image,
                 modifier = Modifier
                     .padding(
                         all = dimens.small

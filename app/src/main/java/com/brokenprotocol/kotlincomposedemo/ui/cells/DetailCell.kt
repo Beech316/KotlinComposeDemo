@@ -28,9 +28,9 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 @Composable
 fun DetailListItem(
     category: Category,
+    defaultImage : Int,
     modifier : Modifier = Modifier
-)
-{
+) {
     val dimens = LocalDimension.current
 
     Card(
@@ -55,7 +55,7 @@ fun DetailListItem(
                 )
             } else {
                 Image(
-                    painter = painterResource(id = R.drawable.category_image),
+                    painter = painterResource(id = defaultImage),
                     contentDescription = "Default Image",
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier.fillMaxSize()
