@@ -1,3 +1,8 @@
 <resources>
+    <!-- Screens -->
     <string name="app_name">KotlinComposeDemo</string>
+
+    <!-- Buttons -->
+    <string name="back_button">Back</string>
+    <string name="menu_button">Menu</string>
 </resources>
