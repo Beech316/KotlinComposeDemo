@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.models.Category
+import com.brokenprotocol.kotlincomposedemo.ui.components.LoadImageOrDefault
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
@@ -40,22 +41,11 @@ fun CategoryListItem(
             modifier = Modifier.fillMaxSize()
         ) {
 
-            if (category.imageUrlString.isNotEmpty()) {
-                AsyncImage(
-                    model = category.imageUrlString,
-                    contentDescription = "Category image",
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                )
-            } else {
-                Image(
-                    painter = painterResource(id = R.drawable.category_image),
-                    contentDescription = "Default Image",
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+            LoadImageOrDefault(
+                imageUrl = category.imageUrlString,
+                default = R.drawable.category_image,
+                modifier = Modifier.fillMaxSize().align(Alignment.Center)
+            )
 
             Text(
                 text = category.name,
