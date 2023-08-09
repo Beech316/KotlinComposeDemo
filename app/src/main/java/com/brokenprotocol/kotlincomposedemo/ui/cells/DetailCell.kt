@@ -23,12 +23,13 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.models.Category
+import com.brokenprotocol.kotlincomposedemo.data.models.Detail
 import com.brokenprotocol.kotlincomposedemo.ui.components.LoadImageOrDefault
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
 fun DetailListItem(
-    category: Category,
+    detail: Detail,
     defaultImage : Int,
     modifier : Modifier = Modifier
 ) {
@@ -46,8 +47,13 @@ fun DetailListItem(
             modifier = Modifier.fillMaxSize()
         ) {
 
+            var imageUrlString = detail.imageUrlStrings.firstOrNull()
+            if (imageUrlString == null) {
+                imageUrlString = ""
+            }
+
             LoadImageOrDefault(
-                imageUrl = category.imageUrlString,
+                imageUrl = imageUrlString,
                 default = defaultImage,
                 modifier = Modifier.fillMaxSize().align(Alignment.Center)
             )
@@ -66,7 +72,7 @@ fun DetailListItem(
                 ) {}
 
                 Text(
-                    text = category.name,
+                    text = detail.name,
                     color = Color.White,
                     fontSize = dimens.categoryItemTitle,
                     textAlign = TextAlign.Center,

@@ -19,7 +19,7 @@ fun DetailListScreen(
     modifier : Modifier = Modifier
 ) {
     val dimens = LocalDimension.current
-    val list = DataManager.getCategoryList()
+    val list = DataManager.getDetailList()
 
     LazyColumn(
         contentPadding = PaddingValues(horizontal = dimens.small, vertical = dimens.small),
@@ -33,7 +33,7 @@ fun DetailListScreen(
             key = { list[it].id },
         ) {
             DetailListItem(
-                category = list[it],
+                detail = list[it],
                 defaultImage = R.drawable.detail_image,
                 modifier = Modifier
                     .padding(

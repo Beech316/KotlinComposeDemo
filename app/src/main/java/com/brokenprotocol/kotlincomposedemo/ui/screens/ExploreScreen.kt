@@ -14,6 +14,7 @@ import androidx.compose.ui.res.stringResource
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.DataManager
 import com.brokenprotocol.kotlincomposedemo.data.models.Category
+import com.brokenprotocol.kotlincomposedemo.data.models.Detail
 import com.brokenprotocol.kotlincomposedemo.ui.cells.CategoryListItem
 import com.brokenprotocol.kotlincomposedemo.ui.cells.DetailListItem
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
@@ -21,10 +22,11 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 @Composable
 fun ExploreScreen(
     modifier : Modifier = Modifier,
-    onCategoryelected: (Category) -> Unit = {}
+    onCategorySelected : (Category) -> Unit = {},
+    onDetailSelected : (Detail) -> Unit = {}
 ) {
     val dimens = LocalDimension.current
-    val list = DataManager.getCategoryList()
+    val categoryList = DataManager.getCategoryList()
 
     Column() {
 
@@ -41,11 +43,11 @@ fun ExploreScreen(
                 .wrapContentWidth()
         ) {
             items(
-                list.size,
-                key = { list[it].id },
+                categoryList.size,
+                key = { categoryList[it].id },
             ) {
                 CategoryListItem(
-                    category = list[it],
+                    category = categoryList[it],
                     modifier = Modifier
                         .padding(
                             all = dimens.small
@@ -53,12 +55,14 @@ fun ExploreScreen(
                         .selectable(
                             selected = false,
                             onClick = {
-                                onCategoryelected(list[it])
+                                onCategorySelected(categoryList[it])
                             }
                         )
                 )
             }
         }
+
+        val detailList = DataManager.getDetailList()
 
         Text(
             text = stringResource(id = R.string.details_header_title),
@@ -73,12 +77,12 @@ fun ExploreScreen(
                 .wrapContentWidth()
         ) {
             items(
-                list.size,
-                key = { list[it].id },
+                detailList.size,
+                key = { detailList[it].id },
             ) {
                 DetailListItem(
-                    category = list[it],
-                    defaultImage = R.drawable.category_image,
+                    detail = detailList[it],
+                    defaultImage = R.drawable.detail_image,
                     modifier = Modifier
                         .padding(
                             all = dimens.small

@@ -133,7 +133,7 @@ fun KotlinComposeDemoApp (
                     ) {
                         ExploreScreen(
                             modifier = Modifier,
-                            onCategoryelected = {
+                            onCategorySelected = {
                                 navController.navigate(DemoScreen.DetailList.name)
                             }
                         )
