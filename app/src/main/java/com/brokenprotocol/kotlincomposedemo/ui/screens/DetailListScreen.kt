@@ -11,12 +11,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.DataManager
+import com.brokenprotocol.kotlincomposedemo.data.models.Detail
 import com.brokenprotocol.kotlincomposedemo.ui.cells.DetailListItem
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
 fun DetailListScreen(
-    modifier : Modifier = Modifier
+    modifier : Modifier = Modifier,
+    onDetailSelected : (Detail) -> Unit = {}
 ) {
     val dimens = LocalDimension.current
     val list = DataManager.getDetailList()
@@ -42,7 +44,7 @@ fun DetailListScreen(
                     .selectable(
                         selected = false,
                         onClick = {
-
+                            onDetailSelected(list[it])
                         }
                     )
             )

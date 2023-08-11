@@ -47,10 +47,7 @@ fun DetailListItem(
             modifier = Modifier.fillMaxSize()
         ) {
 
-            var imageUrlString = detail.imageUrlStrings.firstOrNull()
-            if (imageUrlString == null) {
-                imageUrlString = ""
-            }
+            val imageUrlString = detail.getFirstImage()
 
             LoadImageOrDefault(
                 imageUrl = imageUrlString,

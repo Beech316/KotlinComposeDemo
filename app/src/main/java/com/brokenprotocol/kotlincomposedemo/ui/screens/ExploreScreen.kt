@@ -90,7 +90,7 @@ fun ExploreScreen(
                         .selectable(
                             selected = false,
                             onClick = {
-
+                                onDetailSelected(detailList[it])
                             }
                         )
                 )

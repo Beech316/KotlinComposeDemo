@@ -22,6 +22,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -34,12 +35,14 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.brokenprotocol.kotlincomposedemo.ui.KotlinComposeDemoAppViewModel
 import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailListScreen
+import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.ExploreScreen
 import kotlinx.coroutines.launch
 
 enum class DemoScreen(@StringRes val title: Int) {
     Explore(title = R.string.explore_screen),
-    DetailList(title = R.string.detail_List_screen)
+    DetailList(title = R.string.detail_List_screen),
+    Detail(title = R.string.detail_screen)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -122,6 +125,8 @@ fun KotlinComposeDemoApp (
                 }
             ) { innerPadding ->
 
+                val exploreUiState by viewModel.exploreUiState.collectAsState()
+
                 NavHost(
                     navController = navController,
                     startDestination = DemoScreen.Explore.name,
@@ -135,6 +140,10 @@ fun KotlinComposeDemoApp (
                             modifier = Modifier,
                             onCategorySelected = {
                                 navController.navigate(DemoScreen.DetailList.name)
+                            },
+                            onDetailSelected = {
+                                viewModel.updateSelectedDetail(it)
+                                navController.navigate(DemoScreen.Detail.name)
                             }
                         )
                     }
@@ -142,7 +151,20 @@ fun KotlinComposeDemoApp (
                     composable(
                         route = DemoScreen.DetailList.name,
                     ) {
-                        DetailListScreen()
+                        DetailListScreen(
+                            onDetailSelected = {
+                                viewModel.updateSelectedDetail(it)
+                                navController.navigate(DemoScreen.Detail.name)
+                            }
+                        )
+                    }
+
+                    composable(
+                        route = DemoScreen.Detail.name,
+                    ) {
+                        exploreUiState.selectedDetail?.let {
+                            DetailScreen(detail = it)
+                        }
                     }
 
                 }
