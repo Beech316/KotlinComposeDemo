@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -23,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.models.Detail
 import com.brokenprotocol.kotlincomposedemo.ui.components.LoadImageOrDefault
+import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -30,7 +32,7 @@ fun DetailScreen(
     detail : Detail,
     modifier : Modifier = Modifier
 ) {
-
+    val dimens = LocalDimension.current
     val images = detail.getImages()
 
     val pagerState = rememberPagerState { images.size }
@@ -74,6 +76,11 @@ fun DetailScreen(
                 )
             }
         }
+        
+        Text(
+            text = detail.desc,
+            modifier = Modifier.padding(dimens.small)
+        )
 
     }
 
