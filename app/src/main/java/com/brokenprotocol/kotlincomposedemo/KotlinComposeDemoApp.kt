@@ -137,6 +137,8 @@ fun KotlinComposeDemoApp (
                         route = DemoScreen.Explore.name,
                     ) {
                         ExploreScreen(
+                            categoryList = exploreUiState.categoryList,
+                            detailList = exploreUiState.detailList,
                             modifier = Modifier,
                             onCategorySelected = {
                                 navController.navigate(DemoScreen.DetailList.name)
@@ -152,6 +154,7 @@ fun KotlinComposeDemoApp (
                         route = DemoScreen.DetailList.name,
                     ) {
                         DetailListScreen(
+                            detailList = exploreUiState.detailList,
                             onDetailSelected = {
                                 viewModel.updateSelectedDetail(it)
                                 navController.navigate(DemoScreen.Detail.name)

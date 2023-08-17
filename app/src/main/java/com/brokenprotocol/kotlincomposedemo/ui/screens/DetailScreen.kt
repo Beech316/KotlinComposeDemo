@@ -76,7 +76,7 @@ fun DetailScreen(
                 )
             }
         }
-        
+
         Text(
             text = detail.desc,
             modifier = Modifier.padding(dimens.small)

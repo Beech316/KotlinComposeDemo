@@ -9,6 +9,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.brokenprotocol.kotlincomposedemo.R
@@ -21,12 +23,13 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
 fun ExploreScreen(
+    categoryList : List<Category>,
+    detailList : List<Detail>,
     modifier : Modifier = Modifier,
     onCategorySelected : (Category) -> Unit = {},
     onDetailSelected : (Detail) -> Unit = {}
 ) {
     val dimens = LocalDimension.current
-    val categoryList = DataManager.getCategoryList()
 
     Column() {
 
@@ -61,8 +64,6 @@ fun ExploreScreen(
                 )
             }
         }
-
-        val detailList = DataManager.getDetailList()
 
         Text(
             text = stringResource(id = R.string.details_header_title),

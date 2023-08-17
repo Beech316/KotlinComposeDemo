@@ -17,11 +17,11 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
 fun DetailListScreen(
+    detailList : List<Detail>,
     modifier : Modifier = Modifier,
     onDetailSelected : (Detail) -> Unit = {}
 ) {
     val dimens = LocalDimension.current
-    val list = DataManager.getDetailList()
 
     LazyColumn(
         contentPadding = PaddingValues(horizontal = dimens.small, vertical = dimens.small),
@@ -31,11 +31,11 @@ fun DetailListScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         items(
-            list.size,
-            key = { list[it].id },
+            detailList.size,
+            key = { detailList[it].id },
         ) {
             DetailListItem(
-                detail = list[it],
+                detail = detailList[it],
                 defaultImage = R.drawable.detail_image,
                 modifier = Modifier
                     .padding(
@@ -44,7 +44,7 @@ fun DetailListScreen(
                     .selectable(
                         selected = false,
                         onClick = {
-                            onDetailSelected(list[it])
+                            onDetailSelected(detailList[it])
                         }
                     )
             )
