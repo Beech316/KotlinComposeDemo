@@ -10,8 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9f0cba2-b512-495e-88cf-eb0a017c4974" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/KotlinComposeDemoApp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/KotlinComposeDemoApp.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/data/ExploreUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/data/ExploreUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/KotlinComposeDemoAppViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/KotlinComposeDemoAppViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/screens/DetailListScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/screens/DetailListScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/screens/DetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/screens/DetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/screens/ExploreScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/brokenprotocol/kotlincomposedemo/ui/screens/ExploreScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
