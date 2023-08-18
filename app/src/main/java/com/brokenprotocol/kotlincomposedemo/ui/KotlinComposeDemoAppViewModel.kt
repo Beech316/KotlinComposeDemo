@@ -2,6 +2,7 @@ package com.brokenprotocol.kotlincomposedemo.ui
 
 import androidx.lifecycle.ViewModel
 import com.brokenprotocol.kotlincomposedemo.data.DataManager
+import com.brokenprotocol.kotlincomposedemo.data.DetailUiState
 import com.brokenprotocol.kotlincomposedemo.data.ExploreUiState
 import com.brokenprotocol.kotlincomposedemo.data.models.Category
 import com.brokenprotocol.kotlincomposedemo.data.models.Detail
@@ -19,11 +20,18 @@ class KotlinComposeDemoAppViewModel : ViewModel() {
 
     val exploreUiState : StateFlow<ExploreUiState> = _exploreUiState.asStateFlow()
 
+    private val _detailUiState = MutableStateFlow(DetailUiState(
+        liked = false
+    ))
+
+    val detailUiState : StateFlow<DetailUiState> = _detailUiState.asStateFlow()
+
     init {
         updateCategoryList(DataManager.getCategoryList())
         updateDetailList(DataManager.getDetailList())
     }
 
+    // Explore
     fun updateCategoryList(list : List<Category>) {
         _exploreUiState.update { currentState ->
             currentState.copy(
@@ -44,6 +52,15 @@ class KotlinComposeDemoAppViewModel : ViewModel() {
         _exploreUiState.update { currentState ->
             currentState.copy(
                 selectedDetail = detail
+            )
+        }
+    }
+
+    // Detail
+    fun updateDetailLiked(liked : Boolean) {
+        _detailUiState.update { currentState ->
+            currentState.copy(
+                liked = liked
             )
         }
     }

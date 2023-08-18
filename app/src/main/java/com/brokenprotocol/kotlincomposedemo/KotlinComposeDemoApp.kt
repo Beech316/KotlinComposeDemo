@@ -126,6 +126,7 @@ fun KotlinComposeDemoApp (
             ) { innerPadding ->
 
                 val exploreUiState by viewModel.exploreUiState.collectAsState()
+                val detailUIState by viewModel.detailUiState.collectAsState()
 
                 NavHost(
                     navController = navController,
@@ -166,7 +167,13 @@ fun KotlinComposeDemoApp (
                         route = DemoScreen.Detail.name,
                     ) {
                         exploreUiState.selectedDetail?.let {
-                            DetailScreen(detail = it)
+                            DetailScreen(
+                                detail = it,
+                                liked = detailUIState.liked,
+                                onLikeSelected = {
+                                    viewModel.updateDetailLiked(!detailUIState.liked)
+                                }
+                            )
                         }
                     }
 

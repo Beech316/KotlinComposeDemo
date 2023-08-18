@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.Icon
@@ -30,7 +31,9 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 @Composable
 fun DetailScreen(
     detail : Detail,
-    modifier : Modifier = Modifier
+    liked : Boolean,
+    modifier : Modifier = Modifier,
+    onLikeSelected : () -> Unit = {}
 ) {
     val dimens = LocalDimension.current
     val images = detail.getImages()
@@ -53,7 +56,7 @@ fun DetailScreen(
             .wrapContentHeight()
         ) {
             IconButton(
-                onClick = { Log.i("Test", "Button Download Test") }
+                onClick = { onLikeSelected() }
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Share,
@@ -70,10 +73,17 @@ fun DetailScreen(
             IconButton(
                 onClick = { Log.i("Test", "Button Like Test") }
             ) {
-                Icon(
-                    imageVector = Icons.Outlined.FavoriteBorder,
-                    contentDescription = null
-                )
+                if (liked) {
+                    Icon(
+                        imageVector = Icons.Outlined.Favorite,
+                        contentDescription = null
+                    )
+                } else {
+                    Icon(
+                        imageVector = Icons.Outlined.FavoriteBorder,
+                        contentDescription = null
+                    )
+                }
             }
         }
 
