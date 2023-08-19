@@ -1,5 +1,6 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens
 
+import android.content.Intent
 import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brokenprotocol.kotlincomposedemo.R
@@ -36,9 +38,17 @@ fun DetailScreen(
     onLikeSelected : () -> Unit = {}
 ) {
     val dimens = LocalDimension.current
+    val context = LocalContext.current
     val images = detail.getImages()
 
     val pagerState = rememberPagerState { images.size }
+
+    val sendIntent : Intent = Intent().apply {
+        action = Intent.ACTION_SEND
+        putExtra(Intent.EXTRA_TEXT, "Look at this awesome ${detail.name} I found on KotlinDemoApp!")
+        type = "text/plain"
+    }
+    val shareIntent = Intent.createChooser(sendIntent, null)
 
     Column() {
         HorizontalPager(
@@ -56,7 +66,9 @@ fun DetailScreen(
             .wrapContentHeight()
         ) {
             IconButton(
-                onClick = { Log.i("Test", "Button Share Test") }
+                onClick = {
+                    context.startActivity(shareIntent)
+                }
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Share,
