@@ -56,7 +56,7 @@ fun DetailScreen(
             .wrapContentHeight()
         ) {
             IconButton(
-                onClick = { onLikeSelected() }
+                onClick = { Log.i("Test", "Button Share Test") }
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Share,
@@ -71,7 +71,7 @@ fun DetailScreen(
             )
 
             IconButton(
-                onClick = { Log.i("Test", "Button Like Test") }
+                onClick = { onLikeSelected() }
             ) {
                 if (liked) {
                     Icon(

@@ -1,5 +1,6 @@
 package com.brokenprotocol.kotlincomposedemo
 
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -167,6 +168,7 @@ fun KotlinComposeDemoApp (
                         route = DemoScreen.Detail.name,
                     ) {
                         exploreUiState.selectedDetail?.let {
+                            Log.i("DemoApp", "Updating")
                             DetailScreen(
                                 detail = it,
                                 liked = detailUIState.liked,

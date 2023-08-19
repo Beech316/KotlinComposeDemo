@@ -1,5 +1,6 @@
 package com.brokenprotocol.kotlincomposedemo.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.brokenprotocol.kotlincomposedemo.data.DataManager
 import com.brokenprotocol.kotlincomposedemo.data.DetailUiState
@@ -58,6 +59,7 @@ class KotlinComposeDemoAppViewModel : ViewModel() {
 
     // Detail
     fun updateDetailLiked(liked : Boolean) {
+        Log.i("ViewModel", "Updating detail liked to $liked")
         _detailUiState.update { currentState ->
             currentState.copy(
                 liked = liked
