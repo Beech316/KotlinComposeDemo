@@ -1,5 +1,7 @@
 package com.brokenprotocol.kotlincomposedemo.data.models
 
+import android.location.Location
+
 data class Detail(
     val id : String,
     val name : String,
@@ -7,7 +9,8 @@ data class Detail(
     val phone : String,
     val email : String,
     val website : String,
-    val desc : String
+    val desc : String,
+    val location : Location
 ) {
     fun getFirstImage(): String {
         return imageUrlStrings.firstOrNull() ?: return ""

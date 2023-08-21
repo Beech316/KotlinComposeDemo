@@ -1,5 +1,7 @@
 package com.brokenprotocol.kotlincomposedemo.data
 
+import android.location.Location
+import android.location.LocationManager
 import com.brokenprotocol.kotlincomposedemo.data.models.Category
 import com.brokenprotocol.kotlincomposedemo.data.models.Detail
 import java.util.UUID
@@ -19,6 +21,10 @@ object DataManager {
 
     fun getDetailList() : List<Detail> {
 
+        val targetlocation = Location(LocationManager.GPS_PROVIDER)
+        targetlocation.latitude = 48.42678121419683
+        targetlocation.longitude = -123.36438634866388
+
         val first = Detail(
             id = UUID.randomUUID().toString(),
             name = "Cool Forest",
@@ -26,7 +32,8 @@ object DataManager {
             phone = "17782157845",
             email = "test@test.com",
             website = "https://www.google.ca",
-            desc = "Here's some words that describe a very cool forest, with nice trees."
+            desc = "Here's some words that describe a very cool forest, with nice trees.",
+            location = targetlocation
         )
 
         val second = Detail(
@@ -36,7 +43,8 @@ object DataManager {
             phone = "17782157845",
             email = "test@test.com",
             website = "https://www.google.ca",
-            desc = "Here's some words that describe a beautiful lake, with glassy water."
+            desc = "Here's some words that describe a beautiful lake, with glassy water.",
+            location = targetlocation
         )
 
         val third = Detail(
@@ -46,7 +54,8 @@ object DataManager {
             phone = "17782157845",
             email = "test@test.com",
             website = "https://www.google.ca",
-            desc = "Here's some words that describe a lovely ocean, with beautiful swells."
+            desc = "Here's some words that describe a lovely ocean, with beautiful swells.",
+            location = targetlocation
         )
 
         val detailList : MutableList<Detail> = mutableListOf()
@@ -60,6 +69,10 @@ object DataManager {
 
     fun getDetail() : Detail {
 
+        val targetlocation = Location(LocationManager.GPS_PROVIDER)
+        targetlocation.latitude = 48.42678121419683
+        targetlocation.longitude = -123.36438634866388
+
         return Detail(
             id = UUID.randomUUID().toString(),
             name = "Cool Forest",
@@ -67,7 +80,8 @@ object DataManager {
             phone = "17782157845",
             email = "test@test.com",
             website = "https://www.google.ca",
-            desc = "Here's some words that describe stuff."
+            desc = "Here's some words that describe stuff.",
+            location = targetlocation
         )
 
     }
