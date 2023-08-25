@@ -2,6 +2,7 @@ package com.brokenprotocol.kotlincomposedemo.ui.screens
 
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,13 +28,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.models.Detail
 import com.brokenprotocol.kotlincomposedemo.ui.components.LoadImageOrDefault
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
+import com.jai.multifabbutton.compose.FabItem
+import com.jai.multifabbutton.compose.MultiFloatingActionButton
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -57,7 +62,18 @@ fun DetailScreen(
     val shareIntent = Intent.createChooser(sendIntent, null)
 
     Scaffold(
-        floatingActionButton = { FloatingActionButtonCompose() }
+        floatingActionButton = {
+            MultiFloatingActionButton(fabIcon = painterResource(id = R.drawable.ic_fab_add),
+                items = arrayListOf(
+                    FabItem(icon =  painterResource(id = R.drawable.ic_fab_add), label = "Button 1") {
+                        Toast.makeText(context,"#1 Button clicked",Toast.LENGTH_LONG).show()
+                    },
+                    FabItem(icon =  painterResource(id = R.drawable.ic_fab_add), label = "Button 2") {
+                        Toast.makeText(context,"#2 Button clicked",Toast.LENGTH_LONG).show()
+                    }
+                )
+            )
+        }
     ) {
         Column(
             modifier = Modifier.padding(it)
@@ -121,16 +137,4 @@ fun DetailScreen(
 
     }
 
-}
-
-@Composable
-fun FloatingActionButtonCompose() {
-    val context = LocalContext.current
-    FloatingActionButton(shape = MaterialTheme.shapes.large.copy(CornerSize(percent = 50)),
-        contentColor = Color.White,
-        onClick = {
-            Log.i("DetailScreen", "FAB Click")
-        }) {
-        Icon(Icons.Default.Add, contentDescription = null)
-    }
 }
