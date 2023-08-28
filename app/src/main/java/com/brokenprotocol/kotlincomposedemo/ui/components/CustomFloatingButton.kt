@@ -142,7 +142,10 @@ fun MultiFloatingActionButton(
                     SmallFloatingActionButtonRow(
                         item = item,
                         stateTransition = stateTransition,
-                        showLabel = showLabels
+                        showLabel = showLabels,
+                        afterItemTapped = {
+                            stateChange()
+                        }
                     )
                     Spacer(modifier = Modifier.height(20.dp))
                 }
@@ -171,7 +174,8 @@ fun MultiFloatingActionButton(
 fun SmallFloatingActionButtonRow(
     item: FabItem,
     showLabel: Boolean,
-    stateTransition: Transition<MultiFabState>
+    stateTransition: Transition<MultiFabState>,
+    afterItemTapped : () -> Unit = {}
 ) {
     val alpha: Float by stateTransition.animateFloat(
         transitionSpec = {
@@ -196,14 +200,20 @@ fun SmallFloatingActionButtonRow(
                 text = item.label,
                 modifier = Modifier
                     .padding(start = 6.dp, end = 6.dp, top = 4.dp, bottom = 4.dp)
-                    .clickable(onClick = { item.onFabItemClicked() })
+                    .clickable(onClick = {
+                        item.onFabItemClicked()
+                        afterItemTapped()
+                    })
             )
         }
         SmallFloatingActionButton(
             shape = CircleShape,
             modifier = Modifier
                 .padding(4.dp),
-            onClick = { item.onFabItemClicked() },
+            onClick = {
+                item.onFabItemClicked()
+                afterItemTapped()
+            },
             containerColor = Color.Blue,
             contentColor = Color.White
         ) {
