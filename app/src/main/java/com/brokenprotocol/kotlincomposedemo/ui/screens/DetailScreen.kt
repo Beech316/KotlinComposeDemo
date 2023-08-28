@@ -1,5 +1,6 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
@@ -71,12 +72,22 @@ fun DetailScreen(
                         val intent = Intent(Intent.ACTION_DIAL, phone)
                         try {
                             context.startActivity(intent)
-                        } catch (s: SecurityException) {
-                            Toast.makeText(context, "An error occurred with your phone number's format: ${detail.phone}. With error: ${s.localizedMessage}", Toast.LENGTH_LONG).show()
+                        } catch (e : SecurityException) {
+                            Toast.makeText(context, "An error occurred with your phone number's format: ${detail.phone}. Error: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
                         }
                     },
                     FabItem(icon =  painterResource(id = R.drawable.ic_fab_email), label = "Email") {
-
+                        try {
+                            val intent = Intent(Intent.ACTION_SEND)
+                            intent.type = "vnd.android.cursor.item/email"
+                            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(detail.email))
+                            intent.putExtra(Intent.EXTRA_SUBJECT, "KotlinComposeDemo")
+                            context.startActivity(intent)
+                        } catch (e: ActivityNotFoundException) {
+                            Toast.makeText(context, "Can't find email client. Error: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                        } catch (t: Throwable) {
+                            Toast.makeText(context, "An error occurred. Error: ${t.localizedMessage}", Toast.LENGTH_LONG).show()
+                        }
                     }
                 )
             )
