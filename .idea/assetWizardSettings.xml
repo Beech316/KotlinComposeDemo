@@ -24,7 +24,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="/private/var/folders/f3/rzs_4hh15n50l48w0d70rt640000gn/T/baseline_add_24.xml" />
+                                                <entry key="imagePath" value="/private/var/folders/f3/rzs_4hh15n50l48w0d70rt640000gn/T/baseline_email_24.xml" />
                                                 <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
@@ -36,7 +36,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/add/baseline_add_24.xml" />
+                                                <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/email/baseline_email_24.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -68,7 +68,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_fab_add" />
+                                      <entry key="outputName" value="ic_fab_email" />
                                     </map>
                                   </option>
                                 </PersistentState>

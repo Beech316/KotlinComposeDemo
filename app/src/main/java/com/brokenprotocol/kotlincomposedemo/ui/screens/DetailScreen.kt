@@ -1,6 +1,7 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens
 
 import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -65,11 +66,17 @@ fun DetailScreen(
         floatingActionButton = {
             MultiFloatingActionButton(fabIcon = painterResource(id = R.drawable.ic_fab_add),
                 items = arrayListOf(
-                    FabItem(icon =  painterResource(id = R.drawable.ic_fab_add), label = "Button 1") {
-                        Toast.makeText(context,"#1 Button clicked",Toast.LENGTH_LONG).show()
+                    FabItem(icon =  painterResource(id = R.drawable.ic_fab_phone), label = "Phone") {
+                        val phone = Uri.parse("tel:" + detail.phone)
+                        val intent = Intent(Intent.ACTION_DIAL, phone)
+                        try {
+                            context.startActivity(intent)
+                        } catch (s: SecurityException) {
+                            Toast.makeText(context, "An error occurred with your phone number's format: ${detail.phone}. With error: ${s.localizedMessage}", Toast.LENGTH_LONG).show()
+                        }
                     },
-                    FabItem(icon =  painterResource(id = R.drawable.ic_fab_add), label = "Button 2") {
-                        Toast.makeText(context,"#2 Button clicked",Toast.LENGTH_LONG).show()
+                    FabItem(icon =  painterResource(id = R.drawable.ic_fab_email), label = "Email") {
+
                     }
                 )
             )
