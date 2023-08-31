@@ -3,17 +3,17 @@ package com.brokenprotocol.kotlincomposedemo.ui.screens
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -41,6 +41,9 @@ import com.brokenprotocol.kotlincomposedemo.ui.components.LoadImageOrDefault
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 import com.jai.multifabbutton.compose.FabItem
 import com.jai.multifabbutton.compose.MultiFloatingActionButton
+import com.utsman.osmandcompose.OpenStreetMap
+import com.utsman.osmandcompose.rememberCameraState
+import org.osmdroid.util.GeoPoint
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -155,6 +158,18 @@ fun DetailScreen(
             )
 
             Spacer(modifier = Modifier.weight(1.0f))
+
+            // define camera state
+            val cameraState = rememberCameraState {
+                geoPoint = GeoPoint(detail.location.latitude, detail.location.longitude)
+                zoom = 2.0
+            }
+
+            // add node
+            OpenStreetMap(
+                modifier = Modifier.align(Alignment.CenterHorizontally).width(300.dp).height(200.dp),
+                cameraState = cameraState
+            )
 
             Button(
                 modifier = Modifier
