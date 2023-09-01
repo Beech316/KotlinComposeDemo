@@ -25,9 +25,16 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -42,6 +49,8 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 import com.jai.multifabbutton.compose.FabItem
 import com.jai.multifabbutton.compose.MultiFloatingActionButton
 import com.utsman.osmandcompose.OpenStreetMap
+import com.utsman.osmandcompose.DefaultMapProperties
+import com.utsman.osmandcompose.ZoomButtonVisibility
 import com.utsman.osmandcompose.rememberCameraState
 import org.osmdroid.util.GeoPoint
 
@@ -162,14 +171,29 @@ fun DetailScreen(
             // define camera state
             val cameraState = rememberCameraState {
                 geoPoint = GeoPoint(detail.location.latitude, detail.location.longitude)
-                zoom = 2.0
+                zoom = 12.0
             }
 
-            // add node
-            OpenStreetMap(
+            var mapProperties by remember {
+                mutableStateOf(DefaultMapProperties)
+            }
+
+            SideEffect {
+                mapProperties = mapProperties
+                    .copy(zoomButtonVisibility = ZoomButtonVisibility.SHOW_AND_FADEOUT)
+            }
+
+
+            Surface(
                 modifier = Modifier.align(Alignment.CenterHorizontally).width(300.dp).height(200.dp),
-                cameraState = cameraState
-            )
+                color = MaterialTheme.colorScheme.background
+            ) {
+                OpenStreetMap(
+                    modifier = Modifier.fillMaxSize(),
+                    cameraState = cameraState,
+                    properties = mapProperties
+                )
+            }
 
             Button(
                 modifier = Modifier
