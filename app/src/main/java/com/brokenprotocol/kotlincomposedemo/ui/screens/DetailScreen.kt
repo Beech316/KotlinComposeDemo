@@ -46,8 +46,8 @@ import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.models.Detail
 import com.brokenprotocol.kotlincomposedemo.ui.components.LoadImageOrDefault
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
-import com.jai.multifabbutton.compose.FabItem
-import com.jai.multifabbutton.compose.MultiFloatingActionButton
+import com.brokenprotocol.kotlincomposedemo.ui.components.FabItem
+import com.brokenprotocol.kotlincomposedemo.ui.components.MultiFloatingActionButton
 import com.utsman.osmandcompose.DefaultMapProperties
 import com.utsman.osmandcompose.OpenStreetMap
 import com.utsman.osmandcompose.ZoomButtonVisibility
