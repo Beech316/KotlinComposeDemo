@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.rounded.Menu
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,7 +28,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -38,12 +43,15 @@ import com.brokenprotocol.kotlincomposedemo.ui.KotlinComposeDemoAppViewModel
 import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailListScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.ExploreScreen
+import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginSplashScreen
+import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 import kotlinx.coroutines.launch
 
 enum class DemoScreen(@StringRes val title: Int) {
     Explore(title = R.string.explore_screen),
     DetailList(title = R.string.detail_List_screen),
-    Detail(title = R.string.detail_screen)
+    Detail(title = R.string.detail_screen),
+    LoginSplash(title = R.string.login_splash_screen)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -89,6 +97,8 @@ fun KotlinComposeDemoApp (
     navController: NavHostController = rememberNavController()
 ) {
 
+    val dimens = LocalDimension.current
+
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = DemoScreen.valueOf(
         backStackEntry?.destination?.route ?: DemoScreen.Explore.name
@@ -105,7 +115,20 @@ fun KotlinComposeDemoApp (
                         .fillMaxWidth(0.8f)
                         .fillMaxHeight())
                 {
-                    Text("Drawer")
+                    Button(
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .padding(vertical = dimens.medium),
+                        onClick = {
+                            navController.navigate(DemoScreen.LoginSplash.name)
+                            coroutineScope.launch {
+                                drawerState.close()
+                            }
+                        },
+                        colors = ButtonDefaults.buttonColors(Color.Blue)
+                    ) {
+                        Text(text = "Login")
+                    }
                 }
             }
         ) {
@@ -168,7 +191,6 @@ fun KotlinComposeDemoApp (
                         route = DemoScreen.Detail.name,
                     ) {
                         exploreUiState.selectedDetail?.let {
-                            Log.i("DemoApp", "Updating")
                             DetailScreen(
                                 detail = it,
                                 liked = detailUIState.liked,
@@ -177,6 +199,12 @@ fun KotlinComposeDemoApp (
                                 }
                             )
                         }
+                    }
+
+                    composable(
+                        route = DemoScreen.LoginSplash.name,
+                    ) {
+                        LoginSplashScreen()
                     }
 
                 }

@@ -4,6 +4,7 @@
     <string name="explore_screen">Explore</string>
     <string name="detail_List_screen">Detail List</string>
     <string name="detail_screen">Detail</string>
+    <string name="login_splash_screen">Login</string>
 
     <!-- Buttons -->
     <string name="back_button">Back</string>
