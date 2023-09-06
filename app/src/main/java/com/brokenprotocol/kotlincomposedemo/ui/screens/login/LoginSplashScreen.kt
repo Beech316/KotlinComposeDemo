@@ -2,8 +2,10 @@ package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -21,8 +23,8 @@ fun LoginSplashScreen(
     modifier : Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.Center
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.Center,
     ) {
 
         val dimens = LocalDimension.current
@@ -31,7 +33,7 @@ fun LoginSplashScreen(
         Button(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .padding(vertical = dimens.medium),
+                .padding(top = dimens.small),
             onClick = {
 
             },
@@ -43,7 +45,7 @@ fun LoginSplashScreen(
         Button(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .padding(vertical = dimens.medium),
+                .padding(top = dimens.small),
             onClick = {
 
             },
@@ -55,7 +57,7 @@ fun LoginSplashScreen(
         Button(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .padding(vertical = dimens.medium),
+                .padding(top = dimens.small),
             onClick = {
 
             },
@@ -67,7 +69,7 @@ fun LoginSplashScreen(
         Button(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .padding(vertical = dimens.medium),
+                .padding(top = dimens.small),
             onClick = {
 
             },
@@ -79,7 +81,7 @@ fun LoginSplashScreen(
         Button(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .padding(vertical = dimens.medium),
+                .padding(top = dimens.small),
             onClick = {
 
             },
