@@ -25,9 +25,16 @@ fun LoginSplashScreen(
         val dimens = LocalDimension.current
         val context = LocalContext.current
 
+        Text(text = "Sign in or create an account")
+        
         Column(
             modifier = Modifier
-                .padding(start = dimens.none, top = dimens.small, end = dimens.none, bottom = dimens.small)
+                .padding(
+                    start = dimens.none,
+                    top = dimens.small,
+                    end = dimens.none,
+                    bottom = dimens.small
+                )
                 .fillMaxWidth()
         ) {
             Button(
