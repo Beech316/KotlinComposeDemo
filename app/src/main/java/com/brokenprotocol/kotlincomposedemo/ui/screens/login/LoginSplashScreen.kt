@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.brokenprotocol.kotlincomposedemo.data.FontManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
@@ -25,7 +26,14 @@ fun LoginSplashScreen(
         val dimens = LocalDimension.current
         val context = LocalContext.current
 
-        Text(text = "Sign in or create an account")
+        val headerFont = FontManager.loginHeader()
+        Text(
+            text = "Sign in or create an account",
+            fontFamily = headerFont.family,
+            fontSize = headerFont.size,
+            fontStyle = headerFont.style,
+            fontWeight = headerFont.weight
+        )
         
         Column(
             modifier = Modifier
