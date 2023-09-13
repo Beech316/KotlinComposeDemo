@@ -1,8 +1,10 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Divider
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -29,6 +31,14 @@ fun LoginSplashScreen(
         val headerFont = FontManager.loginHeader()
         Text(
             text = "Sign in or create an account",
+            modifier = Modifier
+                .padding(
+                    start = dimens.medium,
+                    top = dimens.medium,
+                    end = dimens.medium,
+                    bottom = dimens.small
+                )
+                .align(Alignment.CenterHorizontally),
             fontFamily = headerFont.family,
             fontSize = headerFont.size,
             fontStyle = headerFont.style,
@@ -39,7 +49,7 @@ fun LoginSplashScreen(
             modifier = Modifier
                 .padding(
                     start = dimens.none,
-                    top = dimens.small,
+                    top = dimens.none,
                     end = dimens.none,
                     bottom = dimens.small
                 )
@@ -48,7 +58,8 @@ fun LoginSplashScreen(
             Button(
                 modifier = Modifier
                     .padding(top = dimens.small)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .width(dimens.extraExtraLarge),
                 onClick = {
 
                 },
@@ -60,7 +71,8 @@ fun LoginSplashScreen(
             Button(
                 modifier = Modifier
                     .padding(top = dimens.small)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .width(dimens.extraExtraLarge),
                 onClick = {
 
                 },
@@ -72,7 +84,8 @@ fun LoginSplashScreen(
             Button(
                 modifier = Modifier
                     .padding(top = dimens.small)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .width(dimens.extraExtraLarge),
                 onClick = {
 
                 },
@@ -84,7 +97,8 @@ fun LoginSplashScreen(
             Button(
                 modifier = Modifier
                     .padding(top = dimens.small)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .width(dimens.extraExtraLarge),
                 onClick = {
 
                 },
@@ -96,7 +110,8 @@ fun LoginSplashScreen(
             Button(
                 modifier = Modifier
                     .padding(top = dimens.small)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .width(dimens.extraExtraLarge),
                 onClick = {
 
                 },
@@ -106,7 +121,17 @@ fun LoginSplashScreen(
             }
         }
 
-        Divider(modifier = Modifier.padding(start = dimens.large, top = dimens.none, end = dimens.large, bottom = dimens.none), thickness = dimens.extraExtraSmall)
+        Divider(
+            modifier = Modifier
+            .padding(
+                start = dimens.large,
+                top = dimens.small,
+                end = dimens.large,
+                bottom = dimens.none
+            )
+            .background(Color.White),
+            thickness = dimens.extraExtraSmall
+        )
 
         Column(
             modifier = Modifier
@@ -116,13 +141,14 @@ fun LoginSplashScreen(
             Button(
                 modifier = Modifier
                     .padding(top = dimens.small)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .width(dimens.extraExtraLarge),
                 onClick = {
 
                 },
                 colors = ButtonDefaults.buttonColors(Color.White)
             ) {
-                Text(text = "Email / Password")
+                Text(text = "Email")
             }
 
         }

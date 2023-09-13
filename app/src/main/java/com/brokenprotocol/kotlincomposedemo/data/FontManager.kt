@@ -11,10 +11,10 @@ object FontManager {
     fun loginHeader(): KotlinComposeDemoFont {
 
         return KotlinComposeDemoFont(
-            family = FontFamily.Monospace,
-            size = 18.sp,
+            family = FontFamily.Serif,
+            size = 22.sp,
             style = FontStyle.Normal,
-            weight = FontWeight(weight = 1)
+            weight = FontWeight(weight = 2)
         )
 
     }
