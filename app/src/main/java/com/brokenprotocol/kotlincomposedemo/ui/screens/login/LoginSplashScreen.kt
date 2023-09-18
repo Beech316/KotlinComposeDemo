@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Divider
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -20,6 +20,7 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 @Composable
 fun LoginSplashScreen(
     modifier : Modifier = Modifier,
+    onEmailSelected : () -> Unit = {}
 ) {
     Column(
         modifier = modifier.fillMaxWidth(),
@@ -144,7 +145,7 @@ fun LoginSplashScreen(
                     .align(Alignment.CenterHorizontally)
                     .width(dimens.extraExtraLarge),
                 onClick = {
-
+                    onEmailSelected()
                 },
                 colors = ButtonDefaults.buttonColors(Color.White)
             ) {

@@ -43,6 +43,7 @@ import com.brokenprotocol.kotlincomposedemo.ui.KotlinComposeDemoAppViewModel
 import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailListScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.ExploreScreen
+import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginEmailScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginSplashScreen
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 import kotlinx.coroutines.launch
@@ -51,7 +52,8 @@ enum class DemoScreen(@StringRes val title: Int) {
     Explore(title = R.string.explore_screen),
     DetailList(title = R.string.detail_List_screen),
     Detail(title = R.string.detail_screen),
-    LoginSplash(title = R.string.login_splash_screen)
+    LoginSplash(title = R.string.login_splash_screen),
+    LoginEmail(title = R.string.login_email_screen)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -204,7 +206,15 @@ fun KotlinComposeDemoApp (
                     composable(
                         route = DemoScreen.LoginSplash.name,
                     ) {
-                        LoginSplashScreen()
+                        LoginSplashScreen(onEmailSelected = {
+                            navController.navigate(DemoScreen.LoginEmail.name)
+                        })
+                    }
+
+                    composable(
+                        route = DemoScreen.LoginEmail.name,
+                    ) {
+                        LoginEmailScreen()
                     }
 
                 }
