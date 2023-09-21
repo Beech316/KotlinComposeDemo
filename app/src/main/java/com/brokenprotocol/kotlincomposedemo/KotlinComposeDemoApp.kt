@@ -2,8 +2,10 @@ package com.brokenprotocol.kotlincomposedemo
 
 import android.util.Log
 import androidx.annotation.StringRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -18,6 +20,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -33,6 +36,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -117,19 +122,22 @@ fun KotlinComposeDemoApp (
                         .fillMaxWidth(0.8f)
                         .fillMaxHeight())
                 {
-                    Button(
+
+                    OutlinedButton(
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
+                            .fillMaxWidth(0.6f)
+                            .height(96.dp)
                             .padding(vertical = dimens.medium),
+                        border = BorderStroke(dimens.extraExtraSmall, Color.Blue),
                         onClick = {
                             navController.navigate(DemoScreen.LoginSplash.name)
                             coroutineScope.launch {
                                 drawerState.close()
                             }
-                        },
-                        colors = ButtonDefaults.buttonColors(Color.Blue)
+                        }
                     ) {
-                        Text(text = "Login")
+                            Text(text = "Login", color = Color.Blue, fontSize = 20.sp)
                     }
                 }
             }
