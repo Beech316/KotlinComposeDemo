@@ -1,7 +1,9 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
@@ -15,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun LoginEmailScreen(
@@ -26,7 +29,7 @@ fun LoginEmailScreen(
 
     Column(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
 
@@ -34,20 +37,21 @@ fun LoginEmailScreen(
 
         Column(modifier = modifier
             .fillMaxWidth()
-            .align(Alignment.CenterHorizontally)
             .wrapContentHeight()
         ) {
 
             OutlinedTextField(
                 value = emailText,
                 onValueChange = { emailText = it },
-                label = { Text(text = "Email") }
+                label = { Text(text = "Email") },
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
             OutlinedTextField(
                 value = passwordText,
                 onValueChange = { passwordText = it },
-                label = { Text(text = "Password") }
+                label = { Text(text = "Password") },
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
         }
