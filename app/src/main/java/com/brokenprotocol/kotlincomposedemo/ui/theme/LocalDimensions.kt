@@ -11,6 +11,9 @@ import androidx.compose.ui.unit.sp
 val LocalDimension = compositionLocalOf { Dimensions() }
 
 data class Dimensions (
+
+    // standard dp units
+
     val default : Dp = 8.dp,
     val none : Dp = 0.dp,
     val extraExtraSmall : Dp = 2.dp,
@@ -21,7 +24,15 @@ data class Dimensions (
     val extraLarge : Dp = 64.dp,
     val extraExtraLarge : Dp = 128.dp,
 
+    // exceptional dp units
+
+    val loginButtonHeight : Dp = 86.dp,
+
+    // Text Units
+
     val exploreSectionHeader : TextUnit = 32.sp,
 
-    val categoryItemTitle : TextUnit = 24.sp
+    val categoryItemTitle : TextUnit = 24.sp,
+
+    val loginButtonTitle : TextUnit = 20.sp
 )

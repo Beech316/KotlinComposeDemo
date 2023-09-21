@@ -127,7 +127,7 @@ fun KotlinComposeDemoApp (
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
                             .fillMaxWidth(0.6f)
-                            .height(96.dp)
+                            .height(dimens.loginButtonHeight)
                             .padding(vertical = dimens.medium),
                         border = BorderStroke(dimens.extraExtraSmall, Color.Blue),
                         onClick = {
@@ -137,7 +137,7 @@ fun KotlinComposeDemoApp (
                             }
                         }
                     ) {
-                            Text(text = "Login", color = Color.Blue, fontSize = 20.sp)
+                            Text(text = "Login", color = Color.Blue, fontSize = dimens.loginButtonTitle)
                     }
                 }
             }

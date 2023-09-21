@@ -1,21 +1,28 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.sp
+import com.brokenprotocol.kotlincomposedemo.DemoScreen
 import com.brokenprotocol.kotlincomposedemo.data.FontManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
+import kotlinx.coroutines.launch
 
 @Composable
 fun LoginSplashScreen(
@@ -56,81 +63,87 @@ fun LoginSplashScreen(
                 )
                 .fillMaxWidth()
         ) {
-            Button(
+
+            OutlinedButton(
                 modifier = Modifier
-                    .padding(top = dimens.small)
                     .align(Alignment.CenterHorizontally)
-                    .width(dimens.extraExtraLarge),
+                    .fillMaxWidth(0.6f)
+                    .height(dimens.loginButtonHeight)
+                    .padding(vertical = dimens.medium),
+                border = BorderStroke(dimens.extraExtraSmall, Color.White),
                 onClick = {
 
-                },
-                colors = ButtonDefaults.buttonColors(Color.White)
+                }
             ) {
-                Text(text = "Apple")
+                Text(text = "Apple", color = Color.White, fontSize = dimens.loginButtonTitle)
             }
 
-            Button(
+            OutlinedButton(
                 modifier = Modifier
-                    .padding(top = dimens.small)
                     .align(Alignment.CenterHorizontally)
-                    .width(dimens.extraExtraLarge),
+                    .fillMaxWidth(0.6f)
+                    .height(dimens.loginButtonHeight)
+                    .padding(vertical = dimens.medium),
+                border = BorderStroke(dimens.extraExtraSmall, Color.LightGray),
                 onClick = {
 
-                },
-                colors = ButtonDefaults.buttonColors(Color.LightGray)
+                }
             ) {
-                Text(text = "Google")
+                Text(text = "Google", color = Color.LightGray, fontSize = dimens.loginButtonTitle)
             }
 
-            Button(
+            OutlinedButton(
                 modifier = Modifier
-                    .padding(top = dimens.small)
                     .align(Alignment.CenterHorizontally)
-                    .width(dimens.extraExtraLarge),
+                    .fillMaxWidth(0.6f)
+                    .height(dimens.loginButtonHeight)
+                    .padding(vertical = dimens.medium),
+                border = BorderStroke(dimens.extraExtraSmall, Color.Blue),
                 onClick = {
 
-                },
-                colors = ButtonDefaults.buttonColors(Color.Blue)
+                }
             ) {
-                Text(text = "Facebook")
+                Text(text = "Facebook", color = Color.Blue, fontSize = dimens.loginButtonTitle)
             }
 
-            Button(
+            OutlinedButton(
                 modifier = Modifier
-                    .padding(top = dimens.small)
                     .align(Alignment.CenterHorizontally)
-                    .width(dimens.extraExtraLarge),
+                    .fillMaxWidth(0.6f)
+                    .height(dimens.loginButtonHeight)
+                    .padding(vertical = dimens.medium),
+                border = BorderStroke(dimens.extraExtraSmall, Color.Yellow),
                 onClick = {
 
-                },
-                colors = ButtonDefaults.buttonColors(Color.Yellow)
+                }
             ) {
-                Text(text = "X / Twitter")
+                Text(text = "X / Twitter", color = Color.Yellow, fontSize = dimens.loginButtonTitle)
             }
 
-            Button(
+            OutlinedButton(
                 modifier = Modifier
-                    .padding(top = dimens.small)
                     .align(Alignment.CenterHorizontally)
-                    .width(dimens.extraExtraLarge),
+                    .fillMaxWidth(0.6f)
+                    .height(dimens.loginButtonHeight)
+                    .padding(vertical = dimens.medium),
+                border = BorderStroke(dimens.extraExtraSmall, Color.Magenta),
                 onClick = {
 
-                },
-                colors = ButtonDefaults.buttonColors(Color.Magenta)
+                }
             ) {
-                Text(text = "Github")
+                Text(text = "Github", color = Color.Magenta, fontSize = dimens.loginButtonTitle)
             }
         }
 
-        Divider(
+        HorizontalDivider(
             modifier = Modifier
-            .padding(
-                start = dimens.large,
-                top = dimens.small,
-                end = dimens.large,
-                bottom = dimens.none
-            )
-            .background(Color.White),
+                .padding(
+                    start = dimens.large,
+                    top = dimens.small,
+                    end = dimens.large,
+                    bottom = dimens.none
+                )
+                .background(Color.White),
             thickness = dimens.extraExtraSmall
         )
 
@@ -139,17 +152,19 @@ fun LoginSplashScreen(
                 .padding(top = dimens.small)
                 .fillMaxWidth()
         ) {
-            Button(
+
+            OutlinedButton(
                 modifier = Modifier
-                    .padding(top = dimens.small)
                     .align(Alignment.CenterHorizontally)
-                    .width(dimens.extraExtraLarge),
+                    .fillMaxWidth(0.6f)
+                    .height(dimens.loginButtonHeight)
+                    .padding(vertical = dimens.medium),
+                border = BorderStroke(dimens.extraExtraSmall, Color.White),
                 onClick = {
                     onEmailSelected()
-                },
-                colors = ButtonDefaults.buttonColors(Color.White)
+                }
             ) {
-                Text(text = "Email")
+                Text(text = "Email", color = Color.White, fontSize = dimens.loginButtonTitle)
             }
 
         }
