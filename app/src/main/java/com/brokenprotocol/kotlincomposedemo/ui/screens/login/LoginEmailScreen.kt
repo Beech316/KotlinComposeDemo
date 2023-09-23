@@ -62,6 +62,18 @@ fun LoginEmailScreen(
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
+            Button(
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(vertical = dimens.medium),
+                onClick = {
+
+                },
+                colors = ButtonDefaults.buttonColors(Color.Green)
+            ) {
+                Text(text = "Login")
+            }
+
         }
 
         Spacer(modifier = Modifier.weight(1.0f))
