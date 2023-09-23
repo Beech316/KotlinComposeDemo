@@ -26,7 +26,9 @@ data class Dimensions (
 
     // exceptional dp units
 
-    val loginButtonHeight : Dp = 86.dp,
+    val loginCategoryButtonHeight : Dp = 86.dp,
+    val loginButtonHeight : Dp = 72.dp,
+    val loginButtonWidth: Dp = 200.dp,
 
     // Text Units
 
@@ -34,5 +36,6 @@ data class Dimensions (
 
     val categoryItemTitle : TextUnit = 24.sp,
 
-    val loginButtonTitle : TextUnit = 20.sp
+    val loginCategoryButtonTitle : TextUnit = 20.sp,
+    val loginButtonTitle : TextUnit = 18.sp
 )

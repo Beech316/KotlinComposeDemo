@@ -67,70 +67,70 @@ fun LoginSplashScreen(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth(0.6f)
-                    .height(dimens.loginButtonHeight)
+                    .height(dimens.loginCategoryButtonHeight)
                     .padding(vertical = dimens.medium),
                 border = BorderStroke(dimens.extraExtraSmall, Color.White),
                 onClick = {
 
                 }
             ) {
-                Text(text = stringResource(id = R.string.login_apple_button), color = Color.White, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_apple_button), color = Color.White, fontSize = dimens.loginCategoryButtonTitle)
             }
 
             OutlinedButton(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth(0.6f)
-                    .height(dimens.loginButtonHeight)
+                    .height(dimens.loginCategoryButtonHeight)
                     .padding(vertical = dimens.medium),
                 border = BorderStroke(dimens.extraExtraSmall, Color.LightGray),
                 onClick = {
 
                 }
             ) {
-                Text(text = stringResource(id = R.string.login_google_button), color = Color.LightGray, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_google_button), color = Color.LightGray, fontSize = dimens.loginCategoryButtonTitle)
             }
 
             OutlinedButton(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth(0.6f)
-                    .height(dimens.loginButtonHeight)
+                    .height(dimens.loginCategoryButtonHeight)
                     .padding(vertical = dimens.medium),
                 border = BorderStroke(dimens.extraExtraSmall, Color.Blue),
                 onClick = {
 
                 }
             ) {
-                Text(text = stringResource(id = R.string.login_facebook_button), color = Color.Blue, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_facebook_button), color = Color.Blue, fontSize = dimens.loginCategoryButtonTitle)
             }
 
             OutlinedButton(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth(0.6f)
-                    .height(dimens.loginButtonHeight)
+                    .height(dimens.loginCategoryButtonHeight)
                     .padding(vertical = dimens.medium),
                 border = BorderStroke(dimens.extraExtraSmall, Color.Yellow),
                 onClick = {
 
                 }
             ) {
-                Text(text = stringResource(id = R.string.login_twitter_button), color = Color.Yellow, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_twitter_button), color = Color.Yellow, fontSize = dimens.loginCategoryButtonTitle)
             }
 
             OutlinedButton(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth(0.6f)
-                    .height(dimens.loginButtonHeight)
+                    .height(dimens.loginCategoryButtonHeight)
                     .padding(vertical = dimens.medium),
                 border = BorderStroke(dimens.extraExtraSmall, Color.Magenta),
                 onClick = {
 
                 }
             ) {
-                Text(text = stringResource(id = R.string.login_github_button), color = Color.Magenta, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_github_button), color = Color.Magenta, fontSize = dimens.loginCategoryButtonTitle)
             }
         }
 
@@ -156,14 +156,14 @@ fun LoginSplashScreen(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth(0.6f)
-                    .height(dimens.loginButtonHeight)
+                    .height(dimens.loginCategoryButtonHeight)
                     .padding(vertical = dimens.medium),
                 border = BorderStroke(dimens.extraExtraSmall, Color.White),
                 onClick = {
                     onEmailSelected()
                 }
             ) {
-                Text(text = stringResource(id = R.string.login_email_button), color = Color.White, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_email_button), color = Color.White, fontSize = dimens.loginCategoryButtonTitle)
             }
 
         }
