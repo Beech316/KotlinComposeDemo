@@ -17,6 +17,12 @@
     <string name="login_button">Login</string>
     <string name="open_map_button">Open Map</string>
     <string name="open_website_button">Open Website</string>
+    <string name="login_apple_button">Apple</string>
+    <string name="login_google_button">Google</string>
+    <string name="login_facebook_button">Facebook</string>
+    <string name="login_twitter_button">X / Twitter</string>
+    <string name="login_github_button">Github</string>
+    <string name="login_email_button">Email</string>
 
     <!-- Headers -->
     <string name="categories_header_title">Categories</string>

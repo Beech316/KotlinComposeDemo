@@ -74,7 +74,7 @@ fun LoginSplashScreen(
 
                 }
             ) {
-                Text(text = "Apple", color = Color.White, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_apple_button), color = Color.White, fontSize = dimens.loginButtonTitle)
             }
 
             OutlinedButton(
@@ -88,7 +88,7 @@ fun LoginSplashScreen(
 
                 }
             ) {
-                Text(text = "Google", color = Color.LightGray, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_google_button), color = Color.LightGray, fontSize = dimens.loginButtonTitle)
             }
 
             OutlinedButton(
@@ -102,7 +102,7 @@ fun LoginSplashScreen(
 
                 }
             ) {
-                Text(text = "Facebook", color = Color.Blue, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_facebook_button), color = Color.Blue, fontSize = dimens.loginButtonTitle)
             }
 
             OutlinedButton(
@@ -116,7 +116,7 @@ fun LoginSplashScreen(
 
                 }
             ) {
-                Text(text = "X / Twitter", color = Color.Yellow, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_twitter_button), color = Color.Yellow, fontSize = dimens.loginButtonTitle)
             }
 
             OutlinedButton(
@@ -130,7 +130,7 @@ fun LoginSplashScreen(
 
                 }
             ) {
-                Text(text = "Github", color = Color.Magenta, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_github_button), color = Color.Magenta, fontSize = dimens.loginButtonTitle)
             }
         }
 
@@ -163,7 +163,7 @@ fun LoginSplashScreen(
                     onEmailSelected()
                 }
             ) {
-                Text(text = "Email", color = Color.White, fontSize = dimens.loginButtonTitle)
+                Text(text = stringResource(id = R.string.login_email_button), color = Color.White, fontSize = dimens.loginButtonTitle)
             }
 
         }

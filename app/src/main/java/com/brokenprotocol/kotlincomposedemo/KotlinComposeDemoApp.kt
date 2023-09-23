@@ -131,7 +131,7 @@ fun KotlinComposeDemoApp (
                             }
                         }
                     ) {
-                            Text(text = "Login", color = Color.Blue, fontSize = dimens.loginButtonTitle)
+                            Text(text = stringResource(id = R.string.login_button), color = Color.Blue, fontSize = dimens.loginButtonTitle)
                     }
                 }
             }
