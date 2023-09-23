@@ -7,12 +7,15 @@
     <string name="login_splash_screen">Login</string>
     <string name="login_email_screen">Email</string>
 
+    <!-- Text -->
+    <string name="login_splash_text">Sign in or create an account</string>
+    <string name="login_email_text">Email and password</string>
+
     <!-- Buttons -->
     <string name="back_button">Back</string>
     <string name="menu_button">Menu</string>
 
-    <!-- headers -->
+    <!-- Headers -->
     <string name="categories_header_title">Categories</string>
     <string name="details_header_title">Details</string>
-
 </resources>

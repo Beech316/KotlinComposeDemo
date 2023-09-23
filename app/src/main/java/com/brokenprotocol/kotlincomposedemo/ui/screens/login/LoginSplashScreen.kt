@@ -6,12 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Divider
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -20,11 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.sp
-import com.brokenprotocol.kotlincomposedemo.DemoScreen
+import androidx.compose.ui.res.stringResource
+import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.FontManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
-import kotlinx.coroutines.launch
 
 @Composable
 fun LoginSplashScreen(
@@ -42,7 +37,7 @@ fun LoginSplashScreen(
 
         val headerFont = FontManager.loginHeader()
         Text(
-            text = "Sign in or create an account",
+            text = stringResource(id = R.string.login_splash_text),
             modifier = Modifier
                 .padding(
                     start = dimens.medium,
