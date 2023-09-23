@@ -71,7 +71,7 @@ fun LoginEmailScreen(
                 },
                 colors = ButtonDefaults.buttonColors(Color.Green)
             ) {
-                Text(text = "Login")
+                Text(text = stringResource(id = R.string.login_button))
             }
 
         }

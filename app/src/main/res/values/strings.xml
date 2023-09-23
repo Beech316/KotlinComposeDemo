@@ -14,6 +14,9 @@
     <!-- Buttons -->
     <string name="back_button">Back</string>
     <string name="menu_button">Menu</string>
+    <string name="login_button">Login</string>
+    <string name="open_map_button">Open Map</string>
+    <string name="open_website_button">Open Website</string>
 
     <!-- Headers -->
     <string name="categories_header_title">Categories</string>
