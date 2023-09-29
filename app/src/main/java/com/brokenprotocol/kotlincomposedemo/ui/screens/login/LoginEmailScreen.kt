@@ -1,5 +1,6 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,9 +11,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,6 +27,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.em
+import androidx.compose.ui.unit.sp
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.FontManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
@@ -83,6 +96,52 @@ fun LoginEmailScreen(
         }
 
         Spacer(modifier = Modifier.weight(1.0f))
+
+        val annotatedString = buildAnnotatedString {
+            append("By joining, you agree to the ")
+
+            pushStringAnnotation(tag = "policy", annotation = "https://google.com/policy")
+            withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                append("privacy policy")
+            }
+            pop()
+
+            append(" and ")
+
+            pushStringAnnotation(tag = "terms", annotation = "https://google.com/terms")
+
+            withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                append("terms of use")
+            }
+
+            pop()
+        }
+
+        ClickableText(
+            text = annotatedString,
+            modifier = Modifier,
+            style = TextStyle(
+                color = Color.Red,
+                fontSize = 16.sp,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.W800,
+                fontStyle = FontStyle.Italic,
+                letterSpacing = 0.5.em,
+                background = Color.LightGray,
+                textDecoration = TextDecoration.Underline
+            ),
+            onClick = { offset ->
+                annotatedString.getStringAnnotations(tag = "policy", start = offset, end = offset).firstOrNull()?.let {
+                    Log.d("policy URL", it.item)
+                }
+
+                annotatedString.getStringAnnotations(tag = "terms", start = offset, end = offset).firstOrNull()?.let {
+                    Log.d("terms URL", it.item)
+                }
+
+        })
+
+
 
     }
 

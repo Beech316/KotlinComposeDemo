@@ -35,7 +35,7 @@ fun LoginSplashScreen(
         val dimens = LocalDimension.current
         val context = LocalContext.current
 
-        val headerFont = FontManager.loginHeader()
+        val headerTextStyle = FontManager.loginHeader()
         Text(
             text = stringResource(id = R.string.login_splash_text),
             modifier = Modifier
@@ -46,10 +46,7 @@ fun LoginSplashScreen(
                     bottom = dimens.small
                 )
                 .align(Alignment.CenterHorizontally),
-            fontFamily = headerFont.family,
-            fontSize = headerFont.size,
-            fontStyle = headerFont.style,
-            fontWeight = headerFont.weight
+            style = headerTextStyle
         )
         
         Column(

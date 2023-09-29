@@ -1,20 +1,35 @@
 package com.brokenprotocol.kotlincomposedemo.data
 
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.brokenprotocol.kotlincomposedemo.data.models.KotlinComposeDemoFont
 
 object FontManager {
 
-    fun loginHeader(): KotlinComposeDemoFont {
+//    TextStyle(
+//        color = Color.Red,
+//        fontSize = 16.sp,
+//        fontFamily = FontFamily.Serif,
+//        fontWeight = FontWeight.W800,
+//        fontStyle = FontStyle.Italic,
+//        letterSpacing = 0.5.em,
+//        background = Color.LightGray,
+//        textDecoration = TextDecoration.Underline
+//    )
 
-        return KotlinComposeDemoFont(
-            family = FontFamily.Serif,
-            size = 22.sp,
-            style = FontStyle.Normal,
-            weight = FontWeight(weight = 2)
+    fun loginHeader(): TextStyle {
+
+        return TextStyle(
+            fontSize = 22.sp,
+            fontFamily = FontFamily.Serif,
+            fontWeight = FontWeight(weight = 2),
+            fontStyle = FontStyle.Normal
         )
 
     }
