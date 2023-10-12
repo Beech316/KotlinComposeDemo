@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-object FontManager {
+object StyleManager {
 
 //    TextStyle(
 //        color = Color.Red,
@@ -19,10 +19,21 @@ object FontManager {
 //        textDecoration = TextDecoration.Underline
 //    )
 
-    fun loginHeader(): TextStyle {
+    fun loginHeader() : TextStyle {
 
         return TextStyle(
             fontSize = 22.sp,
+            fontFamily = FontFamily.Serif,
+            fontWeight = FontWeight(weight = 2),
+            fontStyle = FontStyle.Normal
+        )
+
+    }
+
+    fun createAccountLink() : TextStyle {
+
+        return TextStyle(
+            fontSize = 18.sp,
             fontFamily = FontFamily.Serif,
             fontWeight = FontWeight(weight = 2),
             fontStyle = FontStyle.Normal

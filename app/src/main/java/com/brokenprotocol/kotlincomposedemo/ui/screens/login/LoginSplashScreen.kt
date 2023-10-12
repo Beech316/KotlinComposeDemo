@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.brokenprotocol.kotlincomposedemo.R
-import com.brokenprotocol.kotlincomposedemo.data.FontManager
+import com.brokenprotocol.kotlincomposedemo.data.StyleManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
@@ -35,7 +35,7 @@ fun LoginSplashScreen(
         val dimens = LocalDimension.current
         val context = LocalContext.current
 
-        val headerTextStyle = FontManager.loginHeader()
+        val headerTextStyle = StyleManager.loginHeader()
         Text(
             text = stringResource(id = R.string.login_splash_text),
             modifier = Modifier

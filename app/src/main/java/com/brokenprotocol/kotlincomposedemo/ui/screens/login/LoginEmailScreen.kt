@@ -38,6 +38,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.brokenprotocol.kotlincomposedemo.R
+import com.brokenprotocol.kotlincomposedemo.data.StyleManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
@@ -118,17 +119,8 @@ fun LoginEmailScreen(
 
         ClickableText(
             text = annotatedString,
-            modifier = Modifier,
-            style = TextStyle(
-                color = Color.Red,
-                fontSize = 16.sp,
-                fontFamily = FontFamily.Monospace,
-                fontWeight = FontWeight.W800,
-                fontStyle = FontStyle.Italic,
-                letterSpacing = 0.5.em,
-                background = Color.LightGray,
-                textDecoration = TextDecoration.Underline
-            ),
+            modifier = Modifier.padding(dimens.small),
+            style = StyleManager.createAccountLink(),
             onClick = { offset ->
                 annotatedString.getStringAnnotations(tag = "policy", start = offset, end = offset).firstOrNull()?.let {
                     Log.d("policy URL", it.item)
