@@ -44,22 +44,24 @@ import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailListScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.ExploreScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginEmailScreen
+import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginSignUpScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginSplashScreen
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 import kotlinx.coroutines.launch
 
-enum class DemoScreen(@StringRes val title: Int) {
+enum class KotlinComposeDemoScreen(@StringRes val title: Int) {
     Explore(title = R.string.explore_screen),
     DetailList(title = R.string.detail_List_screen),
     Detail(title = R.string.detail_screen),
     LoginSplash(title = R.string.login_splash_screen),
-    LoginEmail(title = R.string.login_email_screen)
+    LoginEmail(title = R.string.login_email_screen),
+    LoginSignUp(title = R.string.login_sign_up_screen)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KotlinComposeDemoAppBar(
-    currentScreen: DemoScreen,
+    currentScreen: KotlinComposeDemoScreen,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     drawerTapped: () -> Unit,
@@ -102,8 +104,8 @@ fun KotlinComposeDemoApp (
     val dimens = LocalDimension.current
 
     val backStackEntry by navController.currentBackStackEntryAsState()
-    val currentScreen = DemoScreen.valueOf(
-        backStackEntry?.destination?.route ?: DemoScreen.Explore.name
+    val currentScreen = KotlinComposeDemoScreen.valueOf(
+        backStackEntry?.destination?.route ?: KotlinComposeDemoScreen.Explore.name
     )
 
     Surface {
@@ -125,7 +127,7 @@ fun KotlinComposeDemoApp (
                             .padding(vertical = dimens.medium),
                         border = BorderStroke(dimens.extraExtraSmall, Color.Blue),
                         onClick = {
-                            navController.navigate(DemoScreen.LoginSplash.name)
+                            navController.navigate(KotlinComposeDemoScreen.LoginSplash.name)
                             coroutineScope.launch {
                                 drawerState.close()
                             }
@@ -158,41 +160,41 @@ fun KotlinComposeDemoApp (
 
                 NavHost(
                     navController = navController,
-                    startDestination = DemoScreen.Explore.name,
+                    startDestination = KotlinComposeDemoScreen.Explore.name,
                     modifier = Modifier.padding(innerPadding)
                 ) {
 
                     composable(
-                        route = DemoScreen.Explore.name,
+                        route = KotlinComposeDemoScreen.Explore.name,
                     ) {
                         ExploreScreen(
                             categoryList = exploreUiState.categoryList,
                             detailList = exploreUiState.detailList,
                             modifier = Modifier,
                             onCategorySelected = {
-                                navController.navigate(DemoScreen.DetailList.name)
+                                navController.navigate(KotlinComposeDemoScreen.DetailList.name)
                             },
                             onDetailSelected = {
                                 viewModel.updateSelectedDetail(it)
-                                navController.navigate(DemoScreen.Detail.name)
+                                navController.navigate(KotlinComposeDemoScreen.Detail.name)
                             }
                         )
                     }
 
                     composable(
-                        route = DemoScreen.DetailList.name,
+                        route = KotlinComposeDemoScreen.DetailList.name,
                     ) {
                         DetailListScreen(
                             detailList = exploreUiState.detailList,
                             onDetailSelected = {
                                 viewModel.updateSelectedDetail(it)
-                                navController.navigate(DemoScreen.Detail.name)
+                                navController.navigate(KotlinComposeDemoScreen.Detail.name)
                             }
                         )
                     }
 
                     composable(
-                        route = DemoScreen.Detail.name,
+                        route = KotlinComposeDemoScreen.Detail.name,
                     ) {
                         exploreUiState.selectedDetail?.let {
                             DetailScreen(
@@ -206,17 +208,25 @@ fun KotlinComposeDemoApp (
                     }
 
                     composable(
-                        route = DemoScreen.LoginSplash.name,
+                        route = KotlinComposeDemoScreen.LoginSplash.name,
                     ) {
                         LoginSplashScreen(onEmailSelected = {
-                            navController.navigate(DemoScreen.LoginEmail.name)
+                            navController.navigate(KotlinComposeDemoScreen.LoginEmail.name)
                         })
                     }
 
                     composable(
-                        route = DemoScreen.LoginEmail.name,
+                        route = KotlinComposeDemoScreen.LoginEmail.name,
                     ) {
-                        LoginEmailScreen()
+                        LoginEmailScreen(onSignUpSelected = {
+                            navController.navigate(KotlinComposeDemoScreen.LoginSignUp.name)
+                        })
+                    }
+
+                    composable(
+                        route = KotlinComposeDemoScreen.LoginSignUp.name,
+                    ) {
+                        LoginSignUpScreen()
                     }
 
                 }

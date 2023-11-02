@@ -44,6 +44,7 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 @Composable
 fun LoginEmailScreen(
     modifier : Modifier = Modifier,
+    onSignUpSelected : () -> Unit = {}
 ) {
 
     var emailText by remember { mutableStateOf("") }
@@ -86,7 +87,7 @@ fun LoginEmailScreen(
                     .padding(vertical = dimens.medium),
                 shape = RoundedCornerShape(20f),
                 onClick = {
-
+                    onSignUpSelected()
                 },
                 colors = ButtonDefaults.buttonColors(Color.Green)
             ) {
