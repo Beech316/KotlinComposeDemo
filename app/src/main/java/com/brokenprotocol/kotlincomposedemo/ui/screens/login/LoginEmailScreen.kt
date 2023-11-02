@@ -28,15 +28,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.em
-import androidx.compose.ui.unit.sp
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.StyleManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
