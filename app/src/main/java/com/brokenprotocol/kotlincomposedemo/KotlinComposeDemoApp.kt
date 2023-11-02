@@ -2,6 +2,7 @@ package com.brokenprotocol.kotlincomposedemo
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -106,7 +107,6 @@ fun KotlinComposeDemoApp (
     )
 
     Surface {
-
         ModalNavigationDrawer(
             drawerState = drawerState,
             drawerContent = {
@@ -114,8 +114,8 @@ fun KotlinComposeDemoApp (
                 ModalDrawerSheet(
                     Modifier
                         .fillMaxWidth(0.8f)
-                        .fillMaxHeight())
-                {
+                        .fillMaxHeight()
+                ) {
 
                     OutlinedButton(
                         modifier = Modifier

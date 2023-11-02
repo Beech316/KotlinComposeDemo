@@ -1,5 +1,6 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -32,6 +34,8 @@ fun ExploreScreen(
     val dimens = LocalDimension.current
 
     Column() {
+
+        Log.i("Explore Background", "" + MaterialTheme.colorScheme.background)
 
         Text(
             text = stringResource(id = R.string.categories_header_title),
