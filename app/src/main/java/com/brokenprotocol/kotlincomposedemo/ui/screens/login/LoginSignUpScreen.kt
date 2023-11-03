@@ -94,7 +94,7 @@ fun LoginSignUpScreen(
                 colors = ButtonDefaults.buttonColors(Color.Green)
             ) {
                 Text(
-                    text = stringResource(id = R.string.login_button),
+                    text = stringResource(id = R.string.sign_up_button),
                     fontSize = dimens.loginButtonTitle
                 )
             }

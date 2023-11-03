@@ -16,6 +16,7 @@
     <string name="back_button">Back</string>
     <string name="menu_button">Menu</string>
     <string name="login_button">Login</string>
+    <string name="sign_up_button">Sign Up</string>
     <string name="open_map_button">Open Map</string>
     <string name="open_website_button">Open Website</string>
     <string name="login_apple_button">Apple</string>
