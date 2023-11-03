@@ -30,6 +30,7 @@ import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 @Composable
 fun LoginSignUpScreen(
     modifier : Modifier = Modifier,
+    onSignUp : () -> Unit = {}
 ) {
 
     var usernameText by remember { mutableStateOf("") }
@@ -89,7 +90,7 @@ fun LoginSignUpScreen(
                     .padding(vertical = dimens.medium),
                 shape = RoundedCornerShape(20f),
                 onClick = {
-
+                    onSignUp()
                 },
                 colors = ButtonDefaults.buttonColors(Color.Green)
             ) {

@@ -44,6 +44,7 @@ import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailListScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.DetailScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.ExploreScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginEmailScreen
+import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginPasscodeScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginSignUpScreen
 import com.brokenprotocol.kotlincomposedemo.ui.screens.login.LoginSplashScreen
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
@@ -55,7 +56,8 @@ enum class KotlinComposeDemoScreen(@StringRes val title: Int) {
     Detail(title = R.string.detail_screen),
     LoginSplash(title = R.string.login_splash_screen),
     LoginEmail(title = R.string.login_email_screen),
-    LoginSignUp(title = R.string.login_sign_up_screen)
+    LoginSignUp(title = R.string.login_sign_up_screen),
+    LoginPasscode(title = R.string.login_passcode_screen)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -226,7 +228,15 @@ fun KotlinComposeDemoApp (
                     composable(
                         route = KotlinComposeDemoScreen.LoginSignUp.name,
                     ) {
-                        LoginSignUpScreen()
+                        LoginSignUpScreen(onSignUp = {
+                            navController.navigate(KotlinComposeDemoScreen.LoginPasscode.name)
+                        })
+                    }
+
+                    composable(
+                        route = KotlinComposeDemoScreen.LoginPasscode.name,
+                    ) {
+                        LoginPasscodeScreen()
                     }
 
                 }

@@ -7,6 +7,7 @@
     <string name="login_splash_screen">Login</string>
     <string name="login_email_screen">Email</string>
     <string name="login_sign_up_screen">Sign Up</string>
+    <string name="login_passcode_screen">Confirm Code</string>
 
     <!-- Text -->
     <string name="login_splash_text">Sign in or create an account</string>
