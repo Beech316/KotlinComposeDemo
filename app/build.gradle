@@ -76,4 +76,6 @@ dependencies {
 
     implementation 'org.osmdroid:osmdroid-android:6.1.16'
     implementation 'tech.utsmankece:osm-androd-compose:0.0.3'
+
+    implementation "com.github.composeuisuite:ohteepee:$oh_tee_pee_version"
 }

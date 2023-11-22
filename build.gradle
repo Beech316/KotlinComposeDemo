@@ -1,6 +1,7 @@
 buildscript {
     ext {
         compose_ui_version = '1.4.3'
+        oh_tee_pee_version = '1.0.3'
         kotlin_version = '1.8.10'
     }
     dependencies {
@@ -9,6 +10,7 @@ buildscript {
     }
     repositories {
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
