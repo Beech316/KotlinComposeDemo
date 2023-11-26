@@ -11,7 +11,9 @@
 
     <!-- Text -->
     <string name="login_splash_text">Sign in or create an account</string>
-    <string name="login_email_text">Email and password</string>
+    <string name="login_email_text">Login to see your personalized content</string>
+    <string name="login_signup_text">Sign up to personalize your content</string>
+    <string name="login_passcode_text">Enter pin from confirmation email</string>
 
     <!-- Buttons -->
     <string name="back_button">Back</string>

@@ -1,5 +1,6 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,7 +25,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import com.brokenprotocol.kotlincomposedemo.R
+import com.brokenprotocol.kotlincomposedemo.data.StyleManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 
 @Composable
@@ -47,6 +50,20 @@ fun LoginSignUpScreen(
         val dimens = LocalDimension.current
 
         Spacer(modifier = Modifier.weight(1.0f))
+
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            val headerTextStyle = StyleManager.loginHeader()
+            Text(
+                text = stringResource(id = R.string.login_signup_text),
+                modifier = Modifier
+                    .padding(dimens.small),
+                style = headerTextStyle,
+                textAlign = TextAlign.Center
+            )
+        }
 
         Column(
             modifier = modifier

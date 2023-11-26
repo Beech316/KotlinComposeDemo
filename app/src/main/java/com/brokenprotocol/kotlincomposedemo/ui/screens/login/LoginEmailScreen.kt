@@ -1,6 +1,7 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
 import android.util.Log
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,10 +30,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.dp
 import com.brokenprotocol.kotlincomposedemo.R
 import com.brokenprotocol.kotlincomposedemo.data.StyleManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
+import com.google.common.io.Resources.getResource
 
 @Composable
 fun LoginEmailScreen(
@@ -52,6 +56,20 @@ fun LoginEmailScreen(
         val dimens = LocalDimension.current
 
         Spacer(modifier = Modifier.weight(1.0f))
+
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            val headerTextStyle = StyleManager.loginHeader()
+            Text(
+                text = stringResource(id = R.string.login_email_text),
+                modifier = Modifier
+                    .padding(dimens.small),
+                style = headerTextStyle,
+                textAlign = TextAlign.Center
+            )
+        }
 
         Column(modifier = modifier
             .fillMaxWidth()

@@ -1,6 +1,7 @@
 package com.brokenprotocol.kotlincomposedemo.ui.screens.login
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,8 +23,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.brokenprotocol.kotlincomposedemo.R
+import com.brokenprotocol.kotlincomposedemo.data.StyleManager
 import com.brokenprotocol.kotlincomposedemo.ui.theme.LocalDimension
 import com.composeuisuite.ohteepee.OhTeePeeInput
 import com.composeuisuite.ohteepee.configuration.OhTeePeeCellConfiguration
@@ -46,6 +51,20 @@ fun LoginPasscodeScreen(
         val dimens = LocalDimension.current
 
         Spacer(modifier = Modifier.weight(1.0f))
+
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            val headerTextStyle = StyleManager.loginHeader()
+            Text(
+                text = stringResource(id = R.string.login_passcode_text),
+                modifier = Modifier
+                    .padding(dimens.small),
+                style = headerTextStyle,
+                textAlign = TextAlign.Center
+            )
+        }
 
         Row(
             horizontalArrangement = Arrangement.Center
@@ -86,6 +105,16 @@ fun OtpInput() {
             cellModifier = Modifier
                 .padding(horizontal = 4.dp)
                 .size(48.dp),
+            filledCellConfig = defaultCellConfig,
+            activeCellConfig = defaultCellConfig.copy(
+                borderColor = Color.Blue,
+                borderWidth = 2.dp
+            ),
+            errorCellConfig = defaultCellConfig.copy(
+                borderColor = Color.Red,
+                borderWidth = 2.dp
+            ),
+            placeHolder = "-",
         ),
     )
 }
